@@ -1,0 +1,19 @@
+/* base.css overrides */
+
+#user_info {
+    color: #FFF !important;
+    top: 0;
+    position: absolute;
+    right: 0;
+    padding: 5px;
+    background-color: #4E3B3B;
+}
+
+#user_info a
+{
+    color: #FFF;
+}
+
+.float-right {
+    float: right;
+}

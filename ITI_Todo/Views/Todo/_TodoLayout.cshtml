@@ -1,0 +1,41 @@
+﻿@{
+    string user_info = ViewBag.user_info;
+}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+	<title>Template • TodoMVC</title>
+	<link rel="stylesheet" href="@Url.Content("~/Content/base.css")" />
+	<!-- CSS overrides - remove if you don't need it -->
+	<link rel="stylesheet" href="@Url.Content("~/Content/app.css")" />
+	<!--[if IE]>
+	<script src="@Url.Content("~/Scripts/ie.js")"></script>
+	<![endif]-->
+</head>
+<body>
+    <header id="user_info">
+        Hello, @Html.ActionLink(user_info, "Manage", "Account", null, new { @class = "username", title = "Manage" })!
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="float-right">Log off</a>
+        }
+    </header>
+	<section id="todoapp">
+		<header id="header">
+			<h1>todos</h1>
+			<input id="new-todo" placeholder="What needs to be done?" autofocus>
+		</header>
+		@RenderBody()
+	</section>
+	<footer id="info">
+		<p>Double-click to edit a todo</p>
+	</footer>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+	<script src="@Url.Content("~/Scripts/app.js")"></script>
+</body>
+</html>
+
