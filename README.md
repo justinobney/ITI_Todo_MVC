@@ -1,18 +1,50 @@
-ITI IT 257 | ìTo-dosî Learning Project
-======
-*GitHub URL: https://github.com/justinobney/ITI_Todo_MVC*
+# ITI - IT 257 | ‚ÄúTo-dos‚Äù Learning Project
+_**GitHub URL**: https://github.com/justinobney/ITI_Todo_MVC_
 
-Goal: To use a simple ìTo-Doî project to expose and teach the following concepts:
+**Goal**: To use a simple ‚ÄúTo-Do‚Äù project to expose and teach the following concepts:
 * Requirements Gathering & Application Design
 * HTML (simple)
 * ASP.Net MVC (Structure & HTTP Protocols
 * Javascript (Basic Operations)
 * jQuery (AJAX & Events)
 * Web Services
-* FUTURE: Testing
-* FUTURE: Development / Staging / Production
+* _FUTURE_: Testing
+* _FUTURE_: Development / Staging / Production
 
-The following are included as ìGivensî in the project but not the topic of this lesson
+## Givens
+The following are included as ‚Äú_Givens_‚Äù in the project but not the topic of this lesson:
 * Advanced HTML & CSS structure given as initial design template
 * User Management (Local & OAuth via Google)
 * NuGet Package Manager
+
+## Workflow
+* Have students go through the Code Academy Web Fundamentals Project
+  * http://www.codecademy.com/tracks/web
+* Discuss the problem
+  * Make the ‚Äúidea‚Äù sheet provided to the devs
+* Talk about Project Management
+  * Feature, Bugs, Tasks
+  * Show GitHub Issues Tracker
+* Write a spec for the project
+* Discuss & Create the data model
+* Discuss & Create the service calls
+* Discuss MVC Structure
+  * Open Project and go over MVC structure
+
+## Coding
+* Code Add
+  * Verify
+* Code GetUserTasks (all)
+  * Verify
+* Code Delete
+  * Verify
+* Code Mark Complete
+  * Verify
+* Code Update
+  * Verify
+
+## Javascript
+* Click
+* Double Click
+* Submit
+* URL Routing
