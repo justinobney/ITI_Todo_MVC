@@ -3,7 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI_Todo", "ITI_Todo\ITI_Todo.csproj", "{F1D37DEB-91FB-4F6D-B580-70E2041A8158}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9D80F0A2-8E00-46E9-BC07-46C0DB13F20E}"
+	ProjectSection(SolutionItems) = preProject
+		ITI_Todo.vsmdi = ITI_Todo.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Website", "Website", "{67511882-48DE-43F0-A35D-FC98C8D2353C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{091587F3-8097-45DF-ABDA-282B5919EA8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo_Test", "Todo_Test\Todo_Test.csproj", "{47B2319D-20E2-4BE0-83F1-BD2933AC1783}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{D2C10D13-DB7E-4C65-88D8-0C7393292769}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo_DataAccess", "ClassLibrary1\Todo_DataAccess.csproj", "{F0844997-587C-4C33-92E9-497141546C10}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ITI_Todo.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -13,8 +33,21 @@ Global
 		{F1D37DEB-91FB-4F6D-B580-70E2041A8158}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1D37DEB-91FB-4F6D-B580-70E2041A8158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1D37DEB-91FB-4F6D-B580-70E2041A8158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47B2319D-20E2-4BE0-83F1-BD2933AC1783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47B2319D-20E2-4BE0-83F1-BD2933AC1783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47B2319D-20E2-4BE0-83F1-BD2933AC1783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47B2319D-20E2-4BE0-83F1-BD2933AC1783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0844997-587C-4C33-92E9-497141546C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0844997-587C-4C33-92E9-497141546C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0844997-587C-4C33-92E9-497141546C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0844997-587C-4C33-92E9-497141546C10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F1D37DEB-91FB-4F6D-B580-70E2041A8158} = {67511882-48DE-43F0-A35D-FC98C8D2353C}
+		{47B2319D-20E2-4BE0-83F1-BD2933AC1783} = {091587F3-8097-45DF-ABDA-282B5919EA8B}
+		{F0844997-587C-4C33-92E9-497141546C10} = {D2C10D13-DB7E-4C65-88D8-0C7393292769}
 	EndGlobalSection
 EndGlobal
