@@ -14,7 +14,7 @@ namespace Todo_DataAccess.Repositories
 
         public IEnumerable<Todo> All
         {
-            get { return db.Todos; }
+            get { return db.Todos.ToList(); }
         }
 
         public Todo Find(long id)
