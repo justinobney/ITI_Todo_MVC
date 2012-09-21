@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ITI_Todo" Class="ITI_Todo_DemoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=vlwgyivnvp.database.windows.net;Initial Catalog=ITI_Todo;Persist Security Info=True;User ID=jobney@vlwgyivnvp" SettingsObjectName="Todo_DataAccess.Properties.Settings" SettingsPropertyName="ITI_TodoConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Todo" Member="Todos">
+    <Type Name="Todo">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Task_Description" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Task_Complete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Timestamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+</Database>

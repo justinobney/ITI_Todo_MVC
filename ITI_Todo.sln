@@ -18,7 +18,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo_Test", "Todo_Test\Todo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{D2C10D13-DB7E-4C65-88D8-0C7393292769}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo_DataAccess", "ClassLibrary1\Todo_DataAccess.csproj", "{F0844997-587C-4C33-92E9-497141546C10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo_DataAccess", "DataAccess\Todo_DataAccess.csproj", "{F0844997-587C-4C33-92E9-497141546C10}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution

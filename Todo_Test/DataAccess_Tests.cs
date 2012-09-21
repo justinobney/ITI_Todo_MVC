@@ -3,6 +3,8 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Todo_DataAccess.Repositories;
+using Todo_DataAccess;
 
 namespace Todo_Test
 {
@@ -60,9 +62,18 @@ namespace Todo_Test
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void Todo_Repo_Get_All()
         {
-            Assert.Inconclusive("No test to run...");
+            try
+            {
+                TodoRepository db = new TodoRepository();
+                IEnumerable<Todo> todos = db.All;
+            }
+            catch (Exception e)
+            {
+                Assert.Fail(e.Message);
+            }
+            Assert.IsTrue(true);
         }
     }
 }
