@@ -1,5 +1,0 @@
-C:\Users\jobney\Documents\Git\ITI_Todo_MVC\ClassLibrary1\bin\Debug\ClassLibrary1.dll
-C:\Users\jobney\Documents\Git\ITI_Todo_MVC\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
-C:\Users\jobney\Documents\Git\ITI_Todo_MVC\ClassLibrary1\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\jobney\Documents\Git\ITI_Todo_MVC\ClassLibrary1\obj\Debug\ClassLibrary1.dll
-C:\Users\jobney\Documents\Git\ITI_Todo_MVC\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

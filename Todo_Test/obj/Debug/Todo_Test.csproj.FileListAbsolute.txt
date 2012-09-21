@@ -1,5 +1,0 @@
-C:\Users\jobney\Documents\Git\ITI_Todo_MVC\Todo_Test\bin\Debug\Todo_Test.dll
-C:\Users\jobney\Documents\Git\ITI_Todo_MVC\Todo_Test\bin\Debug\Todo_Test.pdb
-C:\Users\jobney\Documents\Git\ITI_Todo_MVC\Todo_Test\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\jobney\Documents\Git\ITI_Todo_MVC\Todo_Test\obj\Debug\Todo_Test.dll
-C:\Users\jobney\Documents\Git\ITI_Todo_MVC\Todo_Test\obj\Debug\Todo_Test.pdb
