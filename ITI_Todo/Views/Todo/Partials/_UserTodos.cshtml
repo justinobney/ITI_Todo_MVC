@@ -6,12 +6,12 @@
     
     <li class="@completed_class" data-todo-id="@item.ID" title="Created On: @item.Timestamp.Value.ToShortDateString()">
 	    <div class="view">
-		@using (Html.BeginForm("MarkComplete", "Todo", new { id = item.ID }, FormMethod.Post, new { @id = "form_MarkComplete" }))
+		@using (Html.BeginForm("MarkComplete", "Todo", new { id = item.ID }))
         {
             <input class="toggle" type="checkbox" @if (item.Task_Complete == true) {<text>checked</text>} />
         }
 		    <label>@item.Task_Description</label>
-            @using (Html.BeginForm("Delete", "Todo", new { id = item.ID }, FormMethod.Post, new { @id = "form_Delete" }))
+            @using (Html.BeginForm("Delete", "Todo", new { id = item.ID }))
             {
                 <button class="destroy"></button>   
             }
