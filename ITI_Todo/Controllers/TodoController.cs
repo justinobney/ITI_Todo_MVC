@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using ITI_Todo.Filters;
+using Todo_DataAccess.Repositories;
 
 namespace ITI_Todo.Controllers
 {
@@ -15,15 +16,19 @@ namespace ITI_Todo.Controllers
         //
         // GET: /Todo/
 
+        protected TodoRepository db = new TodoRepository();
+
         public ActionResult Index()
         {
             string user_name = User.Identity.Name;
-            string user_id = WebSecurity.GetUserId(user_name).ToString();
+            Int64 user_id = WebSecurity.GetUserId(user_name);
             string user_info = string.Format("{0} | {1}", user_name, user_id);
 
             ViewBag.user_info = user_info;
 
-            return View();
+            var model = db.GetUserTasks_All(user_id).ToArray();
+
+            return View(model);
         }
 
         //
@@ -102,8 +107,6 @@ namespace ITI_Todo.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
                 return RedirectToAction("Index");
             }
             catch

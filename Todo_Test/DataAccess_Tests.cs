@@ -75,5 +75,19 @@ namespace Todo_Test
             }
             Assert.IsTrue(true);
         }
+
+        [TestMethod]
+        public void Todo_Repo_User_Todos()
+        {
+            Int64 user_id = 2;
+
+            TodoRepository db = new TodoRepository();
+            Todo[] todos = db.GetUserTasks_All(user_id).ToArray();
+
+            int expected = 0;
+            int actual = todos.Length;
+
+            Assert.AreNotEqual(expected, actual);
+        }
     }
 }

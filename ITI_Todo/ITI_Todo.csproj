@@ -310,6 +310,15 @@
   <ItemGroup>
     <Content Include="Views\Todo\_ViewStart.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\Todo_DataAccess.csproj">
+      <Project>{F0844997-587C-4C33-92E9-497141546C10}</Project>
+      <Name>Todo_DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Todo\Partials\_UserTodos.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

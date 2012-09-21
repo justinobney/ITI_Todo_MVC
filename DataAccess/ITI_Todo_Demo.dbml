@@ -6,7 +6,7 @@
       <Column Name="User_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="Task_Description" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="Task_Complete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Timestamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="Timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

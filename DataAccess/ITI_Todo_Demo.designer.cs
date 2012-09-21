@@ -88,7 +88,7 @@ namespace Todo_DataAccess
 		
 		private System.Nullable<bool> _Task_Complete;
 		
-		private System.Data.Linq.Binary _Timestamp;
+		private System.Nullable<System.DateTime> _Timestamp;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -102,7 +102,7 @@ namespace Todo_DataAccess
     partial void OnTask_DescriptionChanged();
     partial void OnTask_CompleteChanging(System.Nullable<bool> value);
     partial void OnTask_CompleteChanged();
-    partial void OnTimestampChanging(System.Data.Linq.Binary value);
+    partial void OnTimestampChanging(System.Nullable<System.DateTime> value);
     partial void OnTimestampChanged();
     #endregion
 		
@@ -111,7 +111,7 @@ namespace Todo_DataAccess
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int ID
 		{
 			get
@@ -131,7 +131,7 @@ namespace Todo_DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_ID", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_ID", DbType="BigInt NOT NULL")]
 		public long User_ID
 		{
 			get
@@ -151,7 +151,7 @@ namespace Todo_DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Task_Description", DbType="NVarChar(500) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Task_Description", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
 		public string Task_Description
 		{
 			get
@@ -171,7 +171,7 @@ namespace Todo_DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Task_Complete", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Task_Complete", DbType="Bit")]
 		public System.Nullable<bool> Task_Complete
 		{
 			get
@@ -191,8 +191,8 @@ namespace Todo_DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Timestamp", AutoSync=AutoSync.Always, DbType="rowversion", IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Timestamp
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Timestamp", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Timestamp
 		{
 			get
 			{
