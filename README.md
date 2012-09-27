@@ -1,6 +1,8 @@
 # ITI - IT 257 | “To-dos” Learning Project
 _**GitHub URL**: https://github.com/justinobney/ITI_Todo_MVC_
 
+_**Azure URL**: http://iti-todo.azurewebsites.net/Todo_
+
 **Goal**: To use a simple “To-Do” project to expose and teach the following concepts:
 * Requirements Gathering & Application Design
 * HTML (simple)
