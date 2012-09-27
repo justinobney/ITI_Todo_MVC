@@ -323,6 +323,10 @@
   <ItemGroup>
     <Content Include="Views\Todo\Partials\_UserTodos.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\iti-todo - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\iti-todo - Web Deploy.pubxml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
