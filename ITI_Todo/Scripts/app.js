@@ -40,20 +40,22 @@
 
     $("#form_Create").on("submit", function (event) {
         event.preventDefault();
-        if (!this.value) {
+        var self = $(this);
+        if (!self.find('#new-todo').val()) {
             toastr.error("Invalid Data", "Create New Todo");
             return;
         }
 
         $(this).ajaxSubmit({
             success: function (data) {
-                toastr.info("Not Implemented", "Create New Action Captured<br />" + data.response);
-                //window.log(data);
+                toastr.success("Saved to database", "Create New Todo");
+                $('#new-todo').val('');
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 toastr.error(errorThrown, "Create New Action Captured");
                 //window.log(arguments);
-            }
+            },
+            target: '#todo-list'
         });
     });
 

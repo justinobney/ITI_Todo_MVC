@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WebMatrix.WebData;
 using ITI_Todo.Filters;
 using Todo_DataAccess.Repositories;
+using Todo_DataAccess;
 
 namespace ITI_Todo.Controllers
 {
@@ -53,14 +54,20 @@ namespace ITI_Todo.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-            try
-            {
-                return Json(new { response = "Data received was: " + collection["new_todo"] });
-            }
-            catch
-            {
-                return View();
-            }
+            string user_name = User.Identity.Name;
+            Int64 user_id = WebSecurity.GetUserId(user_name);
+
+            Todo new_todo = new Todo();
+            new_todo.Task_Description = collection["new_todo"];
+            new_todo.User_ID = user_id;
+            new_todo.Timestamp = DateTime.Now;
+            db.Insert(new_todo);
+            db.Save();
+
+            var model = db.GetUserTasks_All(user_id).ToArray();
+
+            return PartialView("Partials/_UserTodos", model);
+            //return Json(new { response = "Data received was: " + collection["new_todo"] });
         }
 
         //
