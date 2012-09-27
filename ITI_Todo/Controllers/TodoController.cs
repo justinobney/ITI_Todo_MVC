@@ -22,7 +22,7 @@ namespace ITI_Todo.Controllers
         {
             string user_name = User.Identity.Name;
             Int64 user_id = WebSecurity.GetUserId(user_name);
-            string user_info = string.Format("{0} | {1}", user_name, user_id);
+            string user_info = user_name; //string.Format("{0} | {1}", user_name, user_id);
 
             ViewBag.user_info = user_info;
 
@@ -55,9 +55,7 @@ namespace ITI_Todo.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                return Json(new { response = "Data received was: " + collection["new_todo"] });
             }
             catch
             {
@@ -107,7 +105,23 @@ namespace ITI_Todo.Controllers
         {
             try
             {
-                return RedirectToAction("Index");
+                return Json(new { response = "Data received was: " + id.ToString() });
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // POST: /Todo/Delete/5
+
+        [HttpPost]
+        public ActionResult MarkComplete(int id, FormCollection collection)
+        {
+            try
+            {
+                return Json(new { response = "Data received was: " + collection["complete"] });
             }
             catch
             {
