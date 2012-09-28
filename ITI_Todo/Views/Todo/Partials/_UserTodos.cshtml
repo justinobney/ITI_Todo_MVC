@@ -8,7 +8,7 @@
 	    <div class="view">
 		@using (Html.BeginForm("MarkComplete", "Todo", new { id = item.ID }))
         {
-            <input class="toggle" type="checkbox" @if (item.Task_Complete == true) {<text>checked</text>} onchange="trigger_checkbox_change(this);"  />
+            <input name="todo_complete" class="toggle" type="checkbox" @if (item.Task_Complete == true) {<text>checked</text>} onchange="trigger_checkbox_change(this);"  />
         }
 		    <label>@item.Task_Description</label>
             @using (Html.BeginForm("Delete", "Todo", new { id = item.ID }))

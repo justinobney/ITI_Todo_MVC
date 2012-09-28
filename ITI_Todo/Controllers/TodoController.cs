@@ -97,27 +97,20 @@ namespace ITI_Todo.Controllers
         }
 
         //
-        // GET: /Todo/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
         // POST: /Todo/Delete/5
 
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                return Json(new { response = "Data received was: " + id.ToString() });
-            }
-            catch
-            {
-                return View();
-            }
+            string user_name = User.Identity.Name;
+            Int64 user_id = WebSecurity.GetUserId(user_name);
+
+            db.Delete(id,user_id);
+            db.Save();
+
+            var model = db.GetUserTasks_All(user_id).ToArray();
+
+            return PartialView("Partials/_UserTodos", model);
         }
 
         //
@@ -126,14 +119,16 @@ namespace ITI_Todo.Controllers
         [HttpPost]
         public ActionResult MarkComplete(int id, FormCollection collection)
         {
-            try
-            {
-                return Json(new { response = "Data received was: " + collection["complete"] });
-            }
-            catch
-            {
-                return View();
-            }
+            string user_name = User.Identity.Name;
+            Int64 user_id = WebSecurity.GetUserId(user_name);
+            bool complete = !string.IsNullOrEmpty(collection["todo_complete"]) && collection["todo_complete"] == "on";
+
+            db.MarkComplete(id, user_id, complete);
+            db.Save();
+
+            var model = db.GetUserTasks_All(user_id).ToArray();
+
+            return PartialView("Partials/_UserTodos", model);
         }
     }
 }

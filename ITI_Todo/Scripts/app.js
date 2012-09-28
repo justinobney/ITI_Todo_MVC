@@ -28,21 +28,25 @@
         MarkComplete: function (_form) {
             $(_form).ajaxSubmit({
                 success: function (data) {
-                    toastr.info("Not Implemented", "Completed Action Captured<br />" + data.response);
+                    $('#new-todo').focus();
+                     toastr.success("Saved to database");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Completed Action Captured");
-                }
+                },
+                target: '#todo-list'
             });
         },
         Delete: function (_form) {
             $(_form).ajaxSubmit({
                 success: function (data) {
-                    toastr.info("Not Implemented", "Delete Action Captured<br />" + data.response);
+                    $('#new-todo').focus();
+                    toastr.success("Deleted from database");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Delete Action Captured");
-                }
+                },
+                target: '#todo-list'
             });
         }
     };

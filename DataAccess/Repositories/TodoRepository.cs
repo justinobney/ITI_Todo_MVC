@@ -28,9 +28,28 @@ namespace Todo_DataAccess.Repositories
             db.Todos.InsertOnSubmit(item);
         }
 
-        public void Delete(long id)
+        public void MarkComplete(long id, long user_id, bool complete)
         {
             Todo item = Find(id);
+
+            if (item.User_ID != user_id)
+                throw new Exception("User does not have permission to edit this Todo");
+            
+            item.Task_Complete = complete;
+        }
+
+        public void Delete(long id)
+        {
+            throw new Exception("This is not a secure delete..");
+        }
+
+        public void Delete(long id, long user_id)
+        {
+            Todo item = Find(id);
+            
+            if (item.User_ID != user_id)
+                throw new Exception("User does not have permission to delete this Todo");
+            
             db.Todos.DeleteOnSubmit(item);
         }
 
