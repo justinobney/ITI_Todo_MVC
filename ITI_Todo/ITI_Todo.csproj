@@ -326,6 +326,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\iti-todo - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\iti-todo - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\LocalDeploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
