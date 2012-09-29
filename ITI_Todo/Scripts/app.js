@@ -53,7 +53,36 @@
 
     window.trigger_checkbox_change = function (el) {
         $(el).closest('form').trigger('submit');
-    }
+    };
+
+    //Setup URL Hash Change Events. Refactor this into the requireJS format...
+    $.getScript('https://raw.github.com/Nijikokun/Hasher/master/hasher.min.js', function(){
+        var todo_list = $('#todo-list');
+
+        Hasher.add("/active", function () {
+            todo_list.find('li')
+                .show();
+
+            todo_list.find('li.completed')
+                .hide();
+        });
+
+        Hasher.add("/completed", function () {
+            todo_list.find('li')
+                .hide();
+
+            todo_list.find('li.completed')
+                .show();
+        });
+
+        Hasher.add("/", function () {
+            todo_list.find('li')
+                .show();
+        });
+
+        // Setup the Hasher
+        Hasher.setup();
+    });
 
     $("body").on("submit", function (event) {
         switch (true) {
