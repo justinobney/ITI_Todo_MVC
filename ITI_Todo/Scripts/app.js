@@ -15,7 +15,7 @@
             }
 
             self.ajaxSubmit({
-                success: function (data) {
+                success: function () {
                     toastr.success("Saved to database", "Create New Todo");
                     $('#new-todo').val('');
                 },
@@ -27,7 +27,7 @@
         },
         MarkComplete: function (_form) {
             $(_form).ajaxSubmit({
-                success: function (data) {
+                success: function () {
                     $('#new-todo').focus();
                      toastr.success("Saved to database");
                 },
@@ -38,8 +38,12 @@
             });
         },
         Delete: function (_form) {
+            if(confirm("Are you sure you want to delete this?")){
+                return false;
+            }
+            
             $(_form).ajaxSubmit({
-                success: function (data) {
+                success: function () {
                     $('#new-todo').focus();
                     toastr.success("Deleted from database");
                 },
