@@ -241,6 +241,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\global.custom.js" />
+    <Content Include="Scripts\hasher.min.js" />
     <Content Include="Scripts\ie.js" />
     <Content Include="Scripts\jquery-1.8.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.1.js" />

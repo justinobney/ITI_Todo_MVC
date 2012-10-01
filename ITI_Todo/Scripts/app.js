@@ -29,7 +29,7 @@
             $(_form).ajaxSubmit({
                 success: function () {
                     $('#new-todo').focus();
-                     toastr.success("Saved to database");
+                    toastr.success("Saved to database");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Completed Action Captured");
@@ -38,10 +38,10 @@
             });
         },
         Delete: function (_form) {
-            if(confirm("Are you sure you want to delete this?")){
+            if (confirm("Are you sure you want to delete this?")) {
                 return false;
             }
-            
+
             $(_form).ajaxSubmit({
                 success: function () {
                     $('#new-todo').focus();
@@ -60,8 +60,9 @@
     };
 
     //Setup URL Hash Change Events. Refactor this into the requireJS format...
-    $.getScript('https://raw.github.com/Nijikokun/Hasher/master/hasher.min.js', function(){
+    $.getScript('/Scripts/hasher.min.js', function () {
         var todo_list = $('#todo-list');
+        var filters = $('#filters');
 
         Hasher.add("/active", function () {
             todo_list.find('li')
@@ -69,6 +70,8 @@
 
             todo_list.find('li.completed')
                 .hide();
+
+            filters.find('li a').removeClass('selected').filter('[href$="active"]').addClass('selected');
         });
 
         Hasher.add("/completed", function () {
@@ -77,11 +80,15 @@
 
             todo_list.find('li.completed')
                 .show();
+
+            filters.find('li a').removeClass('selected').filter('[href$="completed"]').addClass('selected');
         });
 
         Hasher.add("/", function () {
             todo_list.find('li')
                 .show();
+
+            filters.find('li a').removeClass('selected').filter('[href="#/"]').addClass('selected');
         });
 
         // Setup the Hasher
@@ -109,5 +116,18 @@
                 console.log("• Didn't match any test");
                 break;
         }
+    });
+
+    $('#toggle-all').on('change', function (e) {
+        var checked = $(e.target).prop('checked');
+        var todos = $('#todo-list li');
+
+        if (checked)
+            todos = todos.not('.completed');
+
+        todos
+            .find(':checkbox')
+            .prop('checked', checked)
+            .trigger('change');
     });
 })(window, jQuery, toastr);
