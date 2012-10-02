@@ -23,6 +23,16 @@ namespace Todo_DataAccess.Repositories
             return item;
         }
 
+        public Todo Find(long id, long user_id)
+        {
+            Todo item = db.Todos.Single(t => t.ID == id);
+
+            if (item.User_ID != user_id)
+                throw new Exception("User does not have permission");
+
+            return item;
+        }
+
         public void Insert(Todo item)
         {
             db.Todos.InsertOnSubmit(item);
@@ -30,11 +40,7 @@ namespace Todo_DataAccess.Repositories
 
         public void MarkComplete(long id, long user_id, bool complete)
         {
-            Todo item = Find(id);
-
-            if (item.User_ID != user_id)
-                throw new Exception("User does not have permission to edit this Todo");
-            
+            Todo item = Find(id, user_id);
             item.Task_Complete = complete;
         }
 
@@ -45,11 +51,7 @@ namespace Todo_DataAccess.Repositories
 
         public void Delete(long id, long user_id)
         {
-            Todo item = Find(id);
-            
-            if (item.User_ID != user_id)
-                throw new Exception("User does not have permission to delete this Todo");
-            
+            Todo item = Find(id, user_id);
             db.Todos.DeleteOnSubmit(item);
         }
 
