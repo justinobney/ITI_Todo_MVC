@@ -71,29 +71,22 @@ namespace ITI_Todo.Controllers
         }
 
         //
-        // GET: /Todo/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Todo/Edit/5
+        // POST: /Todo/Update/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Update(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            string user_name = User.Identity.Name;
+            Int64 user_id = WebSecurity.GetUserId(user_name);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Todo todo = db.Find(id, user_id);
+            todo.Task_Description = collection["todo"];
+            new_todo.Timestamp = DateTime.Now;
+            db.Save();
+
+            var model = db.GetUserTasks_All(user_id).ToArray();
+
+            return PartialView("Partials/_UserTodos", model);
         }
 
         //

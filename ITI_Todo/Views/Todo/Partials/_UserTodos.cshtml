@@ -16,6 +16,9 @@
                 <button class="destroy"></button>   
             }
 	    </div>
-	    <input class="edit" value="@item.Task_Description">
+        @using (Html.BeginForm("Update", "Todo", new { id = item.ID }))
+        {
+            <input class="edit" value="@item.Task_Description" name="todo" autofocus />
+        }
     </li>
 }
