@@ -118,6 +118,18 @@
         }
     });
 
+    $('#todo-list').on('dblclick', 'li', function (e) {
+        var self = $(this);
+        self.addClass('editing');
+        self.find('input').focus();
+    });
+
+    $('#todo-list').on('blur', '.editing input', function (e) {
+        var self = $(this);
+        var parent_li = self.closest('li');
+        parent_li.removeClass('editing');
+    });
+
     $('#toggle-all').on('change', function (e) {
         var checked = $(e.target).prop('checked');
         var todos = $('#todo-list li');
