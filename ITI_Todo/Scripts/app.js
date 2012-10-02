@@ -26,22 +26,19 @@
             });
         },
         Update: function (_form) {
-            toastr.error("Not Implimented", "Update Todo");
-            return;
-
             var self = $(_form);
-            if (!self.find('#todo').val()) {
+            if (!self.find('[name="todo"]').val()) {
                 toastr.error("Invalid Data", "Update Todo");
                 return;
             }
 
             self.ajaxSubmit({
                 success: function () {
-                    toastr.success("Saved to database", "Create New Todo");
+                    toastr.success("Saved to database", "Update Todo");
                     $('#new-todo').val('');
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    toastr.error(errorThrown, "Create New Action Captured");
+                    toastr.error(errorThrown, "Update Action Captured");
                 },
                 target: '#todo-list'
             });
@@ -147,13 +144,36 @@
     $('#todo-list').on('dblclick', 'li', function (e) {
         var self = $(this);
         self.addClass('editing');
-        self.find('input').focus();
+
+        var txtbox = self.find(':text');
+        var original_value = txtbox.val();
+
+        txtbox.data("original_value", original_value);
+        txtbox.focus();
+    });
+
+
+    $('#todo-list').on('keypress', '.editing input', function (e) {
+        var self = $(this);
+        if (e.which === 13) {
+            e.preventDefault();
+            self.blur();
+        }
     });
 
     $('#todo-list').on('blur', '.editing input', function (e) {
         var self = $(this);
-        var parent_li = self.closest('li');
-        parent_li.removeClass('editing');
+
+        var orginial_value = self.data("original_value");
+        var new_value = self.val();
+
+        if (orginial_value !== new_value) {
+            self.closest('form').trigger('submit');
+        } else {
+            toastr.info("No change");
+            var parent_li = self.closest('li');
+            parent_li.removeClass('editing');
+        }
     });
 
     $('#toggle-all').on('change', function (e) {

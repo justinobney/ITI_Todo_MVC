@@ -81,7 +81,7 @@ namespace ITI_Todo.Controllers
 
             Todo todo = db.Find(id, user_id);
             todo.Task_Description = collection["todo"];
-            new_todo.Timestamp = DateTime.Now;
+            todo.Timestamp = DateTime.Now;
             db.Save();
 
             var model = db.GetUserTasks_All(user_id).ToArray();

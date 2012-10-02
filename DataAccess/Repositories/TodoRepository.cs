@@ -23,16 +23,6 @@ namespace Todo_DataAccess.Repositories
             return item;
         }
 
-        public Todo Find(long id, long user_id)
-        {
-            Todo item = db.Todos.Single(t => t.ID == id);
-
-            if (item.User_ID != user_id)
-                throw new Exception("User does not have permission");
-
-            return item;
-        }
-
         public void Insert(Todo item)
         {
             db.Todos.InsertOnSubmit(item);
@@ -74,6 +64,16 @@ namespace Todo_DataAccess.Repositories
         {
             IEnumerable<Todo> todos = db.Todos.Where(t => t.User_ID == user_id && t.Task_Complete == false);
             return todos;
+        }
+
+        public Todo Find(long id, long user_id)
+        {
+            Todo item = db.Todos.Single(t => t.ID == id);
+
+            if (item.User_ID != user_id)
+                throw new Exception("User does not have permission");
+
+            return item;
         }
 
         #endregion
