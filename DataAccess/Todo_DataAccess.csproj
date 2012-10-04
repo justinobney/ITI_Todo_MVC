@@ -60,8 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="app.debug.config" />
-    <None Include="app.release.config" />
     <None Include="ITI_Todo_Demo.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>ITI_Todo_Demo.designer.cs</LastGenOutput>
@@ -81,12 +79,11 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\Web\Microsoft.Web.Publishing.Tasks.dll" Condition=" '$(OS)' == 'Windows_NT' " />
-  <Target Name="BeforeBuild" Condition=" '$(OS)' == 'Windows_NT' ">
-    <TransformXml Source="App.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="App.$(Configuration).config" ContinueOnError="False" StackTrace="True" />
-  </Target>
-  <Target Name="AfterBuild" Condition=" '$(OS)' == 'Windows_NT' ">
-    <Copy SourceFiles="$(IntermediateOutputPath)$(TargetFileName).config" DestinationFiles="$(OutputPath)$(TargetFileName).config" />
-    <Delete Files="$(IntermediateOutputPath)$(TargetFileName).config" />
-  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.  	
+    Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
 </Project>
