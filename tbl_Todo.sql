@@ -1,4 +1,3 @@
-USE [aspnet-ITI_Todo-20120914092713]
 GO
 
 /****** Object:  Table [dbo].[Todo]    Script Date: 10/3/2012 11:53:43 PM ******/
