@@ -20,11 +20,6 @@
 
         void Settings_SettingsLoaded(object sender, System.Configuration.SettingsLoadedEventArgs e)
         {
-            #if(DEBUG) 
-                this["ITI_TodoConnectionString"] = @"Data Source=.\SQLEXPRESS;Initial Catalog=aspnet-ITI_Todo-20120914092713;Integrated Security=SSPI";      
-            #else
-                this["ITI_TodoConnectionString"] = "Data Source=vlwgyivnvp.database.windows.net;Initial Catalog=ITI_Todo;Persist Security Info=True;User ID=jobney@vlwgyivnvp;Password=";
-            #endif
         }
         
         private void SettingChangingEventHandler(object sender, System.Configuration.SettingChangingEventArgs e) {

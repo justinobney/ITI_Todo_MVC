@@ -10,7 +10,14 @@ namespace Todo_DataAccess.Repositories
     {
         #region IRepository<Todo> Members
 
-        protected ITI_Todo_DemoDataContext db = new ITI_Todo_DemoDataContext();
+        protected ITI_Todo_DemoDataContext db;
+            
+        public TodoRepository(string connectionstring) { 
+
+            db = new ITI_Todo_DemoDataContext(connectionstring);
+        
+        }
+
 
         public IEnumerable<Todo> All
         {

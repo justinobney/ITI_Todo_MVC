@@ -7,6 +7,7 @@ using WebMatrix.WebData;
 using ITI_Todo.Filters;
 using Todo_DataAccess.Repositories;
 using Todo_DataAccess;
+using System.Configuration;
 
 namespace ITI_Todo.Controllers
 {
@@ -17,7 +18,7 @@ namespace ITI_Todo.Controllers
         //
         // GET: /Todo/
 
-        protected TodoRepository db = new TodoRepository();
+        protected TodoRepository db = new TodoRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
         public ActionResult Index()
         {

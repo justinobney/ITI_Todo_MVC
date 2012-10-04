@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ITI_Todo" Class="ITI_Todo_DemoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=vlwgyivnvp.database.windows.net;Initial Catalog=ITI_Todo;Persist Security Info=True;User ID=jobney@vlwgyivnvp" SettingsObjectName="Todo_DataAccess.Properties.Settings" SettingsPropertyName="ITI_TodoConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=aspnet-ITI_Todo-20120914092713;Integrated Security=SSPI" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Todo" Member="Todos">
     <Type Name="Todo">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

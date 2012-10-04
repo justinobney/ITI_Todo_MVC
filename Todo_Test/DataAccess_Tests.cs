@@ -66,7 +66,8 @@ namespace Todo_Test
         {
             try
             {
-                TodoRepository db = new TodoRepository();
+                string connection = "";
+                TodoRepository db = new TodoRepository(connection);
                 IEnumerable<Todo> todos = db.All;
             }
             catch (Exception e)
@@ -81,7 +82,9 @@ namespace Todo_Test
         {
             Int64 user_id = 2;
 
-            TodoRepository db = new TodoRepository();
+            string connection = "";
+
+            TodoRepository db = new TodoRepository(connection);
             Todo[] todos = db.GetUserTasks_All(user_id).ToArray();
 
             int expected = 0;

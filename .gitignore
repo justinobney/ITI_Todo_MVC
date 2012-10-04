@@ -109,7 +109,7 @@ stylecop.*
 *.dat
 *.trx
 DataAccess/Properties/Settings.settings
-*.release.config
+*.Release.config
 *.pubxml
 
 Generated_Code #added for RIA/Silverlight projects
