@@ -19,11 +19,11 @@ namespace ITI_Todo.Controllers
         //
         // GET: /Todo/
 
-        protected ITodoRepository db;
+        protected ITodoRepository db = new TodoRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
         public ActionResult Index()
         {
-            db = new TodoRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            //db = new TodoRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
             //db = new TodoRepository_XML(
             //    Server.MapPath(ConfigurationManager.ConnectionStrings["XMLConnection"].ConnectionString)
