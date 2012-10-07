@@ -67,7 +67,7 @@ namespace Todo_Test
             try
             {
                 string connection = "";
-                TodoRepository db = new TodoRepository(connection);
+                ITodoRepository db = new TodoRepository(connection);
                 IEnumerable<Todo> todos = db.All;
             }
             catch (Exception e)
@@ -84,7 +84,21 @@ namespace Todo_Test
 
             string connection = "";
 
-            TodoRepository db = new TodoRepository(connection);
+            ITodoRepository db = new TodoRepository(connection);
+            Todo[] todos = db.GetUserTasks_All(user_id).ToArray();
+
+            int expected = 0;
+            int actual = todos.Length;
+
+            Assert.AreNotEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Todo_Repo_User_Todos_XML()
+        {
+            Int64 user_id = 1;
+            
+            ITodoRepository db = new TodoRepository_XML("");
             Todo[] todos = db.GetUserTasks_All(user_id).ToArray();
 
             int expected = 0;

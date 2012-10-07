@@ -8,6 +8,7 @@ using ITI_Todo.Filters;
 using Todo_DataAccess.Repositories;
 using Todo_DataAccess;
 using System.Configuration;
+using System.IO;
 
 namespace ITI_Todo.Controllers
 {
@@ -18,10 +19,16 @@ namespace ITI_Todo.Controllers
         //
         // GET: /Todo/
 
-        protected TodoRepository db = new TodoRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+        protected ITodoRepository db;
 
         public ActionResult Index()
         {
+            db = new TodoRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
+            //db = new TodoRepository_XML(
+            //    Server.MapPath(ConfigurationManager.ConnectionStrings["XMLConnection"].ConnectionString)
+            //);
+
             string user_name = User.Identity.Name;
             Int64 user_id = WebSecurity.GetUserId(user_name);
             string user_info = user_name; //string.Format("{0} | {1}", user_name, user_id);

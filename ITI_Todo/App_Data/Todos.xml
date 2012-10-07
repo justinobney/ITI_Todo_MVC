@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+    <row>
+        <ID>15</ID>
+        <User_ID>2</User_ID>
+        <Task_Description>Backlog Meeting</Task_Description>
+        <Task_Complete>0</Task_Complete>
+        <Timestamp>2012-09-28 16:53:11.000</Timestamp>
+    </row>
+    <row>
+        <ID>16</ID>
+        <User_ID>2</User_ID>
+        <Task_Description>Verify Bid vs. Award Subscription (filter, new report name); send out test subscription</Task_Description>
+        <Task_Complete>NULL</Task_Complete>
+        <Timestamp>2012-09-28 16:53:50.567</Timestamp>
+    </row>
+    <row>
+        <ID>17</ID>
+        <User_ID>2</User_ID>
+        <Task_Description>Complete User Guide for Field QA/QC field users.</Task_Description>
+        <Task_Complete>NULL</Task_Complete>
+        <Timestamp>2012-09-28 16:55:06.330</Timestamp>
+    </row>
+    <row>
+        <ID>20</ID>
+        <User_ID>1</User_ID>
+        <Task_Description>Code Filters</Task_Description>
+        <Task_Complete>1</Task_Complete>
+        <Timestamp>2012-09-28 18:39:10.063</Timestamp>
+    </row>
+    <row>
+        <ID>21</ID>
+        <User_ID>1</User_ID>
+        <Task_Description>Learn Titanium</Task_Description>
+        <Task_Complete>0</Task_Complete>
+        <Timestamp>2012-10-05 04:16:00.743</Timestamp>
+    </row>
+    <row>
+        <ID>22</ID>
+        <User_ID>1</User_ID>
+        <Task_Description>Learn Parse.com *</Task_Description>
+        <Task_Complete>0</Task_Complete>
+        <Timestamp>2012-10-05 04:16:17.780</Timestamp>
+    </row>
+    <row>
+        <ID>23</ID>
+        <User_ID>1</User_ID>
+        <Task_Description>Learn Backbone.js</Task_Description>
+        <Task_Complete>0</Task_Complete>
+        <Timestamp>2012-09-29 22:41:03.450</Timestamp>
+    </row>
+    <row>
+        <ID>24</ID>
+        <User_ID>1</User_ID>
+        <Task_Description>Learn Require.js **</Task_Description>
+        <Task_Complete>0</Task_Complete>
+        <Timestamp>2012-10-02 21:22:54.387</Timestamp>
+    </row>
+    <row>
+        <ID>25</ID>
+        <User_ID>1</User_ID>
+        <Task_Description>Code remaining item count</Task_Description>
+        <Task_Complete>NULL</Task_Complete>
+        <Timestamp>2012-10-04 14:27:45.303</Timestamp>
+    </row>
+</rows>
