@@ -18,6 +18,7 @@
                 success: function () {
                     toastr.success("Saved to database", "Create New Todo");
                     $('#new-todo').val('');
+                    $("#todoapp").triggerHandler("db_action_complete");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Create New Action Captured");
@@ -36,6 +37,7 @@
                 success: function () {
                     toastr.success("Saved to database", "Update Todo");
                     $('#new-todo').val('');
+                    $("#todoapp").triggerHandler("db_action_complete");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Update Action Captured");
@@ -48,6 +50,7 @@
                 success: function () {
                     $('#new-todo').focus();
                     toastr.success("Saved to database");
+                    $("#todoapp").triggerHandler("db_action_complete");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Completed Action Captured");
@@ -64,6 +67,7 @@
                 success: function () {
                     $('#new-todo').focus();
                     toastr.success("Deleted from database");
+                    $("#todoapp").triggerHandler("db_action_complete");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Delete Action Captured");
@@ -141,6 +145,14 @@
         }
     });
 
+    $("#todoapp").on("db_action_complete", function (event) {
+        var completed_count = $('#todo-list').find('li.completed').length;
+        var active_count = $('#todo-list').find('li').not('.completed').length;
+
+        $('#todo-count strong').text(active_count);
+        $('#clear-completed').text('Clear completed (' + completed_count + ')');
+    });
+
     $('#todo-list').on('dblclick', 'li', function (e) {
         var self = $(this);
         self.addClass('editing');
@@ -151,7 +163,6 @@
         txtbox.data("original_value", original_value);
         txtbox.focus();
     });
-
 
     $('#todo-list').on('keypress', '.editing input', function (e) {
         var self = $(this);
@@ -188,4 +199,6 @@
             .prop('checked', checked)
             .trigger('change');
     });
+
+    $("#todoapp").triggerHandler("db_action_complete");
 })(window, jQuery, toastr);
