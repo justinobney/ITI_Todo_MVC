@@ -98,7 +98,7 @@ namespace Todo_Test
         {
             Int64 user_id = 1;
             
-            ITodoRepository db = new TodoRepository_XML("");
+            ITodoRepository db = new TodoRepository_XML("Data/Todos.xml");
             Todo[] todos = db.GetUserTasks_All(user_id).ToArray();
 
             int expected = 0;
