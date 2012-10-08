@@ -61,13 +61,34 @@ namespace Todo_Test
         //
         #endregion
 
+        private enum TodoRepoType { 
+            SQL,
+            XML
+        }
+
+        private ITodoRepository GetRepository(TodoRepoType dbType) {
+            ITodoRepository db = null;
+
+            switch (dbType) { 
+                case TodoRepoType.SQL:
+                    db = new TodoRepository(@"Data Source=.\SQLEXPRESS;Initial Catalog=aspnet-ITI_Todo-20120914092713;Integrated Security=SSPI");
+                    break;
+                case TodoRepoType.XML:
+                    db = new TodoRepository_XML("Data/Todos.xml");
+                    break;
+            }
+
+            return db;
+        }
+
+        #region SQL Repository Methods
+
         [TestMethod]
         public void Todo_Repo_Get_All()
         {
             try
             {
-                string connection = "";
-                ITodoRepository db = new TodoRepository(connection);
+                ITodoRepository db = GetRepository(TodoRepoType.SQL);
                 IEnumerable<Todo> todos = db.All;
             }
             catch (Exception e)
@@ -82,9 +103,7 @@ namespace Todo_Test
         {
             Int64 user_id = 2;
 
-            string connection = "";
-
-            ITodoRepository db = new TodoRepository(connection);
+            ITodoRepository db = GetRepository(TodoRepoType.SQL);
             Todo[] todos = db.GetUserTasks_All(user_id).ToArray();
 
             int expected = 0;
@@ -92,13 +111,39 @@ namespace Todo_Test
 
             Assert.AreNotEqual(expected, actual);
         }
+
+
+        [TestMethod]
+        public void Todo_Repo_Create_Todo()
+        {
+            Int64 user_id = 3;
+            Todo new_todo = new Todo() { 
+                User_ID = user_id,
+                Task_Description = "Test Todo: " + DateTime.Now.ToString(),
+                Task_Complete = false,
+                Timestamp = DateTime.Now
+            };
+
+            ITodoRepository db = GetRepository(TodoRepoType.SQL);
+            
+            int expected = db.All.ToList().Count + 1; // We expect to have ONE more after the INSERT
+            db.Insert(new_todo);
+            db.Save();
+            int actual = db.All.ToList().Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        #endregion
+        
+        #region XML Repository Methods
 
         [TestMethod]
         public void Todo_Repo_User_Todos_XML()
         {
             Int64 user_id = 1;
             
-            ITodoRepository db = new TodoRepository_XML("Data/Todos.xml");
+            ITodoRepository db = GetRepository(TodoRepoType.XML);
             Todo[] todos = db.GetUserTasks_All(user_id).ToArray();
 
             int expected = 0;
@@ -106,5 +151,7 @@ namespace Todo_Test
 
             Assert.AreNotEqual(expected, actual);
         }
+
+        #endregion
     }
 }

@@ -1,3 +1,4 @@
+/*global window, toastr, jQuery, confirm, Hasher, console*/
 (function (window, $, toastr) {
     'use strict';
 
@@ -7,8 +8,8 @@
     };
 
     var Todo_Actions = {
-        Create: function (_form) {
-            var self = $(_form);
+        Create: function (form) {
+            var self = $(form);
             if (!self.find('#new-todo').val()) {
                 toastr.error("Invalid Data", "Create New Todo");
                 return;
@@ -26,8 +27,8 @@
                 target: '#todo-list'
             });
         },
-        Update: function (_form) {
-            var self = $(_form);
+        Update: function (form) {
+            var self = $(form);
             if (!self.find('[name="todo"]').val()) {
                 toastr.error("Invalid Data", "Update Todo");
                 return;
@@ -45,8 +46,8 @@
                 target: '#todo-list'
             });
         },
-        MarkComplete: function (_form) {
-            $(_form).ajaxSubmit({
+        MarkComplete: function (form) {
+            $(form).ajaxSubmit({
                 success: function () {
                     $('#new-todo').focus();
                     toastr.success("Saved to database");
@@ -58,12 +59,12 @@
                 target: '#todo-list'
             });
         },
-        Delete: function (_form) {
+        Delete: function (form) {
             if (!confirm("Are you sure you want to delete this?")) {
                 return false;
             }
 
-            $(_form).ajaxSubmit({
+            $(form).ajaxSubmit({
                 success: function () {
                     $('#new-todo').focus();
                     toastr.success("Deleted from database");
@@ -93,7 +94,10 @@
             todo_list.find('li.completed')
                 .hide();
 
-            filters.find('li a').removeClass('selected').filter('[href$="active"]').addClass('selected');
+            filters.find('li a')
+                .removeClass('selected')
+                .filter('[href$="active"]')
+                .addClass('selected');
         });
 
         Hasher.add("/completed", function () {
@@ -103,14 +107,20 @@
             todo_list.find('li.completed')
                 .show();
 
-            filters.find('li a').removeClass('selected').filter('[href$="completed"]').addClass('selected');
+            filters.find('li a')
+                .removeClass('selected')
+                .filter('[href$="completed"]')
+                .addClass('selected');
         });
 
         Hasher.add("/", function () {
             todo_list.find('li')
                 .show();
 
-            filters.find('li a').removeClass('selected').filter('[href="#/"]').addClass('selected');
+            filters.find('li a')
+                .removeClass('selected')
+                .filter('[href="#/"]')
+                .addClass('selected');
         });
 
         // Setup the Hasher
@@ -192,7 +202,10 @@
         var todos = $('#todo-list li');
 
         if (checked)
+        {
             todos = todos.not('.completed');
+        }
+            
 
         todos
             .find(':checkbox')
