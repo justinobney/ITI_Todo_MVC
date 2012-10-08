@@ -113,7 +113,7 @@
         Hasher.setup();
     });
 
-    $("#todo-list").on("submit", function (event) {
+    $("#todoapp").on("submit", function (event) {
         switch (true) {
             case /Todo\/Create/.test(event.target.action):
                 // Matched 'Create' test
