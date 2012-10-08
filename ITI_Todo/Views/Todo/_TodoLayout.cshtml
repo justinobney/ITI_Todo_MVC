@@ -15,7 +15,7 @@
 	<!--[if IE]>
 	<script src="@Url.Content("~/Scripts/ie.js")"></script>
 	<![endif]-->
-
+    @*@StackExchange.Profiling.ClientTimingHelper.InitClientTimings(this)*@
     <!--  Add Google Analytics  -->
     <script type="text/javascript">
         var _gaq = _gaq || [];
@@ -73,6 +73,7 @@
     <script src="@Url.Content("~/Scripts/global.custom.js")" type="text/javascript"></script>
     @RenderSection("scripts", required: false)
 	<script src="@Url.Content("~/Scripts/app.js")"></script>
+    @StackExchange.Profiling.MiniProfiler.RenderIncludes()
 </body>
 </html>
 

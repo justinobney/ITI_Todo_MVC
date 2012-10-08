@@ -9,6 +9,9 @@ using Todo_DataAccess.Repositories;
 using Todo_DataAccess;
 using System.Configuration;
 using System.IO;
+using StackExchange.Profiling.Data;
+using StackExchange.Profiling;
+using System.Data.SqlClient;
 
 namespace ITI_Todo.Controllers
 {
@@ -18,8 +21,17 @@ namespace ITI_Todo.Controllers
     {
         //
         // GET: /Todo/
+        //var profiled = new ProfiledDbConnection(cnn, MiniProfiler.Current);
+        protected ITodoRepository db; // = new TodoRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
-        protected ITodoRepository db = new TodoRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+        public TodoController() {
+            MiniProfiler profiler = MiniProfiler.Current;
+            // Setup a profiled connection.
+            var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            var profiledConn = new StackExchange.Profiling.Data.ProfiledDbConnection(conn, profiler);
+
+            db = new TodoRepository(profiledConn);
+        }
 
         public ActionResult Index()
         {

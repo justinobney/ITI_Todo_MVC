@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace Todo_DataAccess.Repositories
@@ -11,11 +12,13 @@ namespace Todo_DataAccess.Repositories
         protected ITI_Todo_DemoDataContext db;
             
         public TodoRepository(string connectionstring) { 
-
             db = new ITI_Todo_DemoDataContext(connectionstring);
-        
         }
 
+        public TodoRepository(IDbConnection connection)
+        {
+            db = new ITI_Todo_DemoDataContext(connection);
+        }
 
         public IEnumerable<Todo> All
         {
