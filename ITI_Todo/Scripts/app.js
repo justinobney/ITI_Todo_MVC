@@ -163,6 +163,7 @@
         $('#clear-completed').text('Clear completed (' + completed_count + ')');
 
         //Google Analytics Event Tracking...
+        var _gaq = _gaq || [];
         _gaq.push(['_trackEvent', 'AJAX Database Action', event_name]);
     });
 
