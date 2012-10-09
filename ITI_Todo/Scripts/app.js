@@ -19,7 +19,7 @@
                 success: function () {
                     toastr.success("Saved to database", "Create New Todo");
                     $('#new-todo').val('');
-                    $("#todoapp").triggerHandler("db_action_complete");
+                    $("#todoapp").triggerHandler("db_action_complete", "Create");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Create New Action Captured");
@@ -38,7 +38,7 @@
                 success: function () {
                     toastr.success("Saved to database", "Update Todo");
                     $('#new-todo').val('');
-                    $("#todoapp").triggerHandler("db_action_complete");
+                    $("#todoapp").triggerHandler("db_action_complete","Update");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Update Action Captured");
@@ -51,7 +51,7 @@
                 success: function () {
                     $('#new-todo').focus();
                     toastr.success("Saved to database");
-                    $("#todoapp").triggerHandler("db_action_complete");
+                    $("#todoapp").triggerHandler("db_action_complete","Mark Complete");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Completed Action Captured");
@@ -68,7 +68,7 @@
                 success: function () {
                     $('#new-todo').focus();
                     toastr.success("Deleted from database");
-                    $("#todoapp").triggerHandler("db_action_complete");
+                    $("#todoapp").triggerHandler("db_action_complete","Delete");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastr.error(errorThrown, "Delete Action Captured");
@@ -155,12 +155,15 @@
         }
     });
 
-    $("#todoapp").on("db_action_complete", function (event) {
+    $("#todoapp").on("db_action_complete", function (event, event_name) {
         var completed_count = $('#todo-list').find('li.completed').length;
         var active_count = $('#todo-list').find('li').not('.completed').length;
 
         $('#todo-count strong').text(active_count);
         $('#clear-completed').text('Clear completed (' + completed_count + ')');
+
+        //Google Analytics Event Tracking...
+        _gaq.push(['_trackEvent', 'AJAX Database Action', event_name]);
     });
 
     $('#todo-list').on('dblclick', 'li', function (e) {
