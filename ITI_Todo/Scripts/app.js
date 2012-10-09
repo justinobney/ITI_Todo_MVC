@@ -167,7 +167,7 @@
         _gaq.push(['_trackEvent', 'AJAX Database Action', event_name]);
     });
 
-    $('#todo-list').on('dblclick', 'li', function (e) {
+    $('#todo-list').on('dblclick doubletap', 'li', function (e) {
         var self = $(this);
         self.addClass('editing');
 
@@ -199,6 +199,12 @@
             var parent_li = self.closest('li');
             parent_li.removeClass('editing');
         }
+    });
+
+    $(':checkbox').on('touchstart', function () {
+        var el = $(this);
+        el.prop('checked', !el.prop('checked'));
+        el.triggerHandler('change');
     });
 
     $('#toggle-all').on('change', function (e) {
