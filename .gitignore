@@ -111,6 +111,8 @@ stylecop.*
 DataAccess/Properties/Settings.settings
 *.Release.config
 *.pubxml
+*.sublime-project
+*.sublime-workspace
 
 Generated_Code #added for RIA/Silverlight projects
 
