@@ -68,6 +68,9 @@
     <Reference Include="MiniProfiler">
       <HintPath>..\packages\MiniProfiler.2.0.2\lib\net40\MiniProfiler.dll</HintPath>
     </Reference>
+    <Reference Include="NewRelic.Api.Agent">
+      <HintPath>..\packages\NewRelicWindowsAzure.1.0.0.26\lib\net40\NewRelic.Api.Agent.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.4.5.9\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -341,6 +344,12 @@
     <Content Include="Views\Todo\Partials\_UserTodos.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NewRelicAgent_x64_2.1.0.5.msi">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="newrelic.cmd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\iti-todo - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\iti-todo - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\LocalDeploy.pubxml" />
