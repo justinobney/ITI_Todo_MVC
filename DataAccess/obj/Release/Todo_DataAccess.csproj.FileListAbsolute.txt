@@ -1,0 +1,12 @@
+\\VBOXSVR\git\ITI_Todo\DataAccess\bin\Release\Todo_DataAccess.dll.config
+\\VBOXSVR\git\ITI_Todo\DataAccess\bin\Release\Todo_DataAccess.dll
+\\VBOXSVR\git\ITI_Todo\DataAccess\bin\Release\Todo_DataAccess.pdb
+\\VBOXSVR\git\ITI_Todo\DataAccess\obj\Release\Todo_DataAccess.csprojResolveAssemblyReference.cache
+\\VBOXSVR\git\ITI_Todo\DataAccess\obj\Release\Todo_DataAccess.dll
+\\VBOXSVR\git\ITI_Todo\DataAccess\obj\Release\Todo_DataAccess.pdb
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\bin\Release\Todo_DataAccess.dll.config
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\bin\Release\Todo_DataAccess.dll
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\bin\Release\Todo_DataAccess.pdb
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\obj\Release\Todo_DataAccess.dll
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\obj\Release\Todo_DataAccess.pdb
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\obj\Release\Todo_DataAccess.csprojResolveAssemblyReference.cache

@@ -79,6 +79,14 @@
         })();
     </script>
     <script type="text/javascript" src="https://s3.amazonaws.com/appfail-us/appfail.reporting.min.js?slug=ITI-Todo"></script>
+    <script src="https://api.loggr.net/1/loggr.min.js?l=justin_test&a=ab297dcbf4b44d6f95faffaf738e95dd"></script>
+
+    <script type="text/javascript">
+        var username = "@User.Identity.Name";
+        // var emailAddress = "EMAILADDRESS";
+        Loggr.Log.trackUser(username, "");
+    </script>
+
     @StackExchange.Profiling.MiniProfiler.RenderIncludes()
 </body>
 </html>

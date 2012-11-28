@@ -1,0 +1,6 @@
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\obj\Debug\Todo_DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\bin\Debug\Todo_DataAccess.dll.config
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\bin\Debug\Todo_DataAccess.dll
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\bin\Debug\Todo_DataAccess.pdb
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\obj\Debug\Todo_DataAccess.dll
+C:\Users\Justin-Mac\Documents\ITI_Todo\DataAccess\obj\Debug\Todo_DataAccess.pdb

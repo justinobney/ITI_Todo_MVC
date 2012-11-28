@@ -1,0 +1,8 @@
+C:\Users\Justin-Mac\Documents\ITI_Todo\Todo_Test\bin\Debug\Data\Todos.xml
+C:\Users\Justin-Mac\Documents\ITI_Todo\Todo_Test\bin\Debug\Todo_Test.dll
+C:\Users\Justin-Mac\Documents\ITI_Todo\Todo_Test\bin\Debug\Todo_Test.pdb
+C:\Users\Justin-Mac\Documents\ITI_Todo\Todo_Test\bin\Debug\Todo_DataAccess.dll
+C:\Users\Justin-Mac\Documents\ITI_Todo\Todo_Test\bin\Debug\Todo_DataAccess.pdb
+C:\Users\Justin-Mac\Documents\ITI_Todo\Todo_Test\obj\Debug\Todo_Test.csprojResolveAssemblyReference.cache
+C:\Users\Justin-Mac\Documents\ITI_Todo\Todo_Test\obj\Debug\Todo_Test.dll
+C:\Users\Justin-Mac\Documents\ITI_Todo\Todo_Test\obj\Debug\Todo_Test.pdb

@@ -84,6 +84,13 @@ namespace ITI_Todo.Controllers
             db.Insert(new_todo);
             db.Save();
 
+            Loggr.Events.Create()
+                .Text("Create Todo")
+                .Tags("CRUD")
+                .Source(User.Identity.Name)
+                .Data("user-id: {0} | on: {1} | data: {2}", user_id, DateTime.Now, new_todo.Task_Description)
+                .Post();
+
             var model = db.GetUserTasks_All(user_id).ToArray();
 
             return PartialView("Partials/_UserTodos", model);
@@ -104,6 +111,13 @@ namespace ITI_Todo.Controllers
             todo.Timestamp = DateTime.Now;
             db.Save();
 
+            Loggr.Events.Create()
+                .Text("Update Todo")
+                .Tags("CRUD")
+                .Source(User.Identity.Name)
+                .Data("user-id: {0} | on: {1} | data: {2}", user_id, DateTime.Now, todo.Task_Description)
+                .Post();
+
             var model = db.GetUserTasks_All(user_id).ToArray();
 
             return PartialView("Partials/_UserTodos", model);
@@ -117,6 +131,13 @@ namespace ITI_Todo.Controllers
         {
             string user_name = User.Identity.Name;
             Int64 user_id = WebSecurity.GetUserId(user_name);
+
+            Loggr.Events.Create()
+                .Text("Delete Todo")
+                .Tags("CRUD")
+                .Source(User.Identity.Name)
+                .Data("user-id: {0} | on: {1} | data: {2}", user_id, DateTime.Now, db.Find(id, user_id).Task_Description)
+                .Post();
 
             db.Delete(id,user_id);
             db.Save();

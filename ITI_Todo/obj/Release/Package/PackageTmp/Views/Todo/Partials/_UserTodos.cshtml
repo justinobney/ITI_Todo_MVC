@@ -1,0 +1,24 @@
+﻿@model Todo_DataAccess.Todo[]
+
+@foreach (var item in Model)
+{
+    string completed_class = (item.Task_Complete == true) ? "completed" : "";
+    
+    <li class="@completed_class" data-todo-id="@item.ID" title="Created On: @item.Timestamp.Value.ToShortDateString()">
+	    <div class="view">
+		@using (Html.BeginForm("MarkComplete", "Todo", new { id = item.ID }))
+        {
+            <input name="todo_complete" class="toggle" type="checkbox" @if (item.Task_Complete == true) {<text>checked</text>} onchange="trigger_checkbox_change(this);"  />
+        }
+		    <label>@item.Task_Description</label>
+            @using (Html.BeginForm("Delete", "Todo", new { id = item.ID }))
+            {
+                <button class="destroy"></button>   
+            }
+	    </div>
+        @using (Html.BeginForm("Update", "Todo", new { id = item.ID }))
+        {
+            <input class="edit" value="@item.Task_Description" name="todo" autofocus />
+        }
+    </li>
+}

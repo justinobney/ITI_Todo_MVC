@@ -1,0 +1,40 @@
+﻿body {
+    width: auto;
+    margin: 10px;
+}
+
+#user_info {
+    position: absolute;
+    margin: 0;
+    text-align: right;
+    border-radius: 0;
+    border: none;
+    line-height: 14px;
+    width: 100%;
+    font-size: 12px;
+}
+
+#todoapp h1 {
+    font-size: 40px;
+    top: -65px;
+}
+
+.profiler-result {
+    display: none;
+}
+
+#new-todo, .edit, #todo-list li {
+    font-size: 16px;
+}
+
+#todoapp {
+    margin-top: 85px;
+}
+
+#clear-completed {
+    display: none;
+}
+
+#filters {
+    margin-left: 25px;
+}
